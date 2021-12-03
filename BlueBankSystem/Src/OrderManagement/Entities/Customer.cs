@@ -1,5 +1,6 @@
 ﻿using BlueBank.System.Domain.Shared.Entities;
 
+
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
     public class Customer : Entity

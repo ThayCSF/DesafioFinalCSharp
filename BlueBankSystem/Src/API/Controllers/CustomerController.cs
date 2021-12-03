@@ -1,9 +1,10 @@
-﻿using BlueBank.System.Application.Requests;
+﻿using BlueBank.System.Application.Commands.Interfaces;
+using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Requests;
+using BlueBank.System.Domain.OrderManagement.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using BlueBank.System.Domain.OrderManagement.Entities;
-using BlueBank.System.Application.Queries.Interfaces;
-using BlueBank.System.Application.Commands.Interfaces;
+
 
 namespace BlueBank.System.Services.API.Controllers
 {

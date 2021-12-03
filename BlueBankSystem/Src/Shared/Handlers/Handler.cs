@@ -1,5 +1,7 @@
 ﻿using BlueBank.System.Domain.Shared.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
+
+
 namespace BlueBank.System.Domain.Shared.Handlers
 {
     public abstract class Handler<TEntity, TRequest, TResponse> where TEntity : Entity

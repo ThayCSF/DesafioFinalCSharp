@@ -6,6 +6,7 @@ using BlueBank.System.Domain.Shared.Interfaces;
 using BlueBank.System.Domain.Shared.Predicates;
 using System.Linq;
 
+
 namespace BlueBank.System.Application.Queries
 {
     public class GetAllAccountQuery : IGetAllAccountQuery
@@ -24,7 +25,9 @@ namespace BlueBank.System.Application.Queries
                 {
                     Id = a.Id,
                     CustomerId = a.CustomerId,
-                    Balance = a.Balance
+                    CustomerName = a.CustomerName,
+                    Balance = a.Balance,
+                    IsActive = a.IsActive
 
                 });
         }

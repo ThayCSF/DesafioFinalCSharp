@@ -1,6 +1,7 @@
 ﻿using BlueBank.System.Domain.Shared.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
 
+
 namespace BlueBank.System.Domain.Shared.Commands
 {
     public abstract class CommandBase<TEntity> where TEntity : Entity

@@ -6,6 +6,7 @@ using BlueBank.System.Domain.Shared.Interfaces;
 using BlueBank.System.Domain.Shared.Predicates;
 using System.Linq;
 
+
 namespace BlueBank.System.Application.Queries
 {
     public class GetAllOperationQuery : IGetAllOperationQuery

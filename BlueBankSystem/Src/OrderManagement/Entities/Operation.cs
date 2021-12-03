@@ -1,6 +1,7 @@
 ﻿using BlueBank.System.Domain.Shared.Entities;
 using System;
 
+
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
     public class Operation : Entity

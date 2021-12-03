@@ -2,9 +2,10 @@
 using BlueBank.System.Application.Commands.Interfaces;
 using BlueBank.System.Application.Queries;
 using BlueBank.System.Application.Queries.Interfaces;
-using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.Shared.Interfaces;
+using BlueBank.System.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace BlueBank.System.Services.API
 {

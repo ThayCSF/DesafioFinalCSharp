@@ -4,6 +4,7 @@ using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
 
+
 namespace BlueBank.System.Application.Commands
 {
     public class AddAccountCommand : IAddAccountCommand    

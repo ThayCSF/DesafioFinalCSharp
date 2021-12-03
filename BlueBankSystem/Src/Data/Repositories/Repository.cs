@@ -1,9 +1,10 @@
-﻿using BlueBank.System.Data.Contexts;
-using BlueBank.System.Domain.Shared.Entities;
+﻿using BlueBank.System.Domain.Shared.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
+using BlueBank.System.Data.Contexts;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+
 
 namespace BlueBank.System.Data.Repositories
 {

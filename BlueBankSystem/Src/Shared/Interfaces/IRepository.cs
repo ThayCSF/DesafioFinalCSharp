@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
+
 namespace BlueBank.System.Domain.Shared.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : Entity

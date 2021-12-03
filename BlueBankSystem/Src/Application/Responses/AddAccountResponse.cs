@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace BlueBank.System.Application.Responses
 {
     public class AddAccountResponse

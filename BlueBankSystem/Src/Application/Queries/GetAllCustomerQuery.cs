@@ -3,8 +3,9 @@ using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
-using System.Linq;
 using BlueBank.System.Domain.Shared.Predicates;
+using System.Linq;
+
 
 namespace BlueBank.System.Application.Queries
 {

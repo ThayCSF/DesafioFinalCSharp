@@ -5,6 +5,7 @@ using BlueBank.System.Domain.OrderManagement.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
+
 namespace BlueBank.System.Services.API.Controllers
 {
     [Route("api/[controller]")]
@@ -59,7 +60,7 @@ namespace BlueBank.System.Services.API.Controllers
         }
 
         [HttpPost]
-        [Route("transaction")]
+        [Route("operation")]
         public IActionResult Add([FromServices] IAddOperationCommand command, [FromBody] AddOperationRequest request)
         {            
             try
@@ -74,7 +75,7 @@ namespace BlueBank.System.Services.API.Controllers
         }
 
         [HttpGet]
-        [Route("transaction")]
+        [Route("operation")]
         public IActionResult Get([FromServices] IGetAllOperationQuery query)
         {
             return Ok(query.Handle(new GetAllOperationRequest()));

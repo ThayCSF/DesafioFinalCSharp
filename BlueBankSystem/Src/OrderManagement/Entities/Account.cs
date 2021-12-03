@@ -1,5 +1,6 @@
-﻿using System;
-using BlueBank.System.Domain.Shared.Entities;
+﻿using BlueBank.System.Domain.Shared.Entities;
+using System;
+
 
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {

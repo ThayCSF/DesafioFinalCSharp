@@ -6,6 +6,7 @@ using BlueBank.System.Domain.Shared.Commands;
 using BlueBank.System.Domain.Shared.Interfaces;
 using System;
 
+
 namespace BlueBank.System.Application.Commands
 {
     public class UpdateAccountCommand : CommandBase<Account>, IUpdateAccountCommand

@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace BlueBank.System.Application.Requests
 {
     public class GetAccountByIdRequest

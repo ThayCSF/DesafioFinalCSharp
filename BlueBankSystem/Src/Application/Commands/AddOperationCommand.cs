@@ -5,16 +5,17 @@ using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
 using System;
 
+
 namespace BlueBank.System.Application.Commands
 {
     public class AddOperationCommand : IAddOperationCommand
     {
         private readonly IRepository<Account> _repository;
-        private readonly IRepository<Operation> _transactionRepository;
-        public AddOperationCommand(IRepository<Account> repository, IRepository<Operation> transactionRepository)
+        private readonly IRepository<Operation> _operationRepository;
+        public AddOperationCommand(IRepository<Account> repository, IRepository<Operation> operationRepository)
         {
             _repository = repository;
-            _transactionRepository = transactionRepository;
+            _operationRepository = operationRepository;
         }
 
         public AddOperationResponse Handle(AddOperationRequest request)
@@ -31,21 +32,21 @@ namespace BlueBank.System.Application.Commands
 
             _repository.Update(accountOrigin);
             _repository.Update(accountRecipient);
-            var transaction = new Operation(        
+            var operation = new Operation(        
                request.AccountOrigin,
                request.AccountRecipient,
                DateTime.Now,
                request.Value
             );
-            _transactionRepository.Add(transaction);
+            _operationRepository.Add(operation);
 
             return new AddOperationResponse()
             {
-                Id = transaction.Id,
-                AccountOrigin = transaction.AccountOrigin,
-                AccountRecipient = transaction.AccountRecipient,
-                Date = transaction.Date,
-                Value = transaction.Value
+                Id = operation.Id,
+                AccountOrigin = operation.AccountOrigin,
+                AccountRecipient = operation.AccountRecipient,
+                Date = operation.Date,
+                Value = operation.Value
             };
         }
     }

@@ -4,6 +4,7 @@ using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.Shared.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
 
+
 namespace BlueBank.System.Application.Commands
 {
     public class ChangeStatusCommand<TEntity> : IChangeStatusCommand<TEntity> where TEntity : Entity

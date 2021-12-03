@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
+
 namespace BlueBank.System.Domain.Shared.Predicates
 {
     public static class PredicateBuilder

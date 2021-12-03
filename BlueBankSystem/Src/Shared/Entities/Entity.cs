@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace BlueBank.System.Domain.Shared.Entities
 {
     public abstract class Entity
