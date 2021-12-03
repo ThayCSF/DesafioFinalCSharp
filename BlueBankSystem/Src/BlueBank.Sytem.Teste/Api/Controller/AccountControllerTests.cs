@@ -1,7 +1,10 @@
 ﻿using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
+using BlueBank.System.Data.Contexts;
+using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.Sytem.Teste.Support;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -14,11 +17,24 @@ namespace BlueBank.Sytem.Teste.Api.Controller
     public class AccountControllerTests : IntegrationTest
     {
         private string AccountEndpoint { get; set; }
+        private Guid CustomerId { get; set; }
 
         public AccountControllerTests(ApiWebApplicationFactory fixture)
             : base(fixture)
         {
             AccountEndpoint = $"/api/account";
+
+            var request = new AddCustomerRequest()
+            {
+                Name = "Teste",
+                Telephone = "55111111111"
+            };
+
+            var data = JsonData(request);
+
+            var postResult = Task.Run(async () => await _client.PostAsync($"/api/customer", data)).Result;
+            var customerResult = ObjectData<AddCustomerResponse>(postResult.Content.ReadAsStringAsync().Result);
+            CustomerId = customerResult.Id;
         }
 
         [Fact]
@@ -26,7 +42,7 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         {
             var request = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
+                CustomerId = CustomerId,
                 Balance = 950
             };
 
@@ -49,8 +65,8 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         {
             var request = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
-            Balance = 500
+                CustomerId = CustomerId,
+                Balance = 500
             };
 
             var data = JsonData(request);
@@ -69,8 +85,8 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         {
             var postRequest = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
-            Balance = 295
+                CustomerId = CustomerId,
+                Balance = 295
             };
             var postData = JsonData(postRequest);
 
@@ -83,7 +99,7 @@ namespace BlueBank.Sytem.Teste.Api.Controller
 
             // Act
             var postResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}", postData)).Result;
-            var accountResult = ObjectData<AddCustomerResponse>(postResult.Content.ReadAsStringAsync().Result);
+            var accountResult = ObjectData<AddAccountResponse>(postResult.Content.ReadAsStringAsync().Result);
             var result = Task.Run(async () => await _client.PutAsync($"{AccountEndpoint}/{accountResult.Id}", putData)).Result;
 
             // Assert
@@ -116,20 +132,32 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void Post_Operations_ValidRequest_ReturnSuccess()
         {
-            
+            // Arrange
+            var postRequest = new AddAccountRequest()
+            {
+                CustomerId = CustomerId,
+                Balance = 295
+            };
+            var postData = JsonData(postRequest);
+
+            // Act
+            var accountOriginResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}", postData)).Result;
+            var accountOrigin = ObjectData<AddCustomerResponse>(accountOriginResult.Content.ReadAsStringAsync().Result);
+
+            var accountRecipientResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}", postData)).Result;
+            var accountRecipient = ObjectData<AddCustomerResponse>(accountRecipientResult.Content.ReadAsStringAsync().Result);
+
             var request = new AddOperationRequest()
             {
-                AccountOrigin = Guid.NewGuid(),
-                AccountRecipient = Guid.NewGuid(),
+                AccountOrigin = accountOrigin.Id,
+                AccountRecipient = accountRecipient.Id,
                 Value = 155
             };
 
             var data = JsonData(request);
-
-            // Act
             var postResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}/operation", data)).Result;
             var operationResult = ObjectData<AddOperationResponse>(postResult.Content.ReadAsStringAsync().Result);
-            var result = Task.Run(async () => await _client.GetAsync($"{AccountEndpoint}/{operationResult.Id}")).Result;
+            var result = Task.Run(async () => await _client.GetAsync($"{AccountEndpoint}/{operationResult.AccountOrigin}")).Result;
 
             // Assert
             result.Should().Be200Ok();
