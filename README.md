@@ -41,23 +41,23 @@ O projeto possui os seguintes endpoints:
 
 | Endpoint                                                             | Verb    | Description             |
 |----------------------------------------------------------------------|:-------:|-------------------------|
-| [/customer](https://localhost:5001/customer)                         | GET     | Get all customers       | 
-| [/customer/{id}](https://localhost:5001/customer/{id})               | GET     | Get customer by id      | 
-| [/customer](https://localhost:5001/customer)                         | POST    | Add customer            | 
-| [/customer/{id}](https://localhost:5001/customer/{id})               | PUT     | Update customer         | 
-| [/customer/{id}](https://localhost:5001/customer/{id})               | PATCH   | Update customer status  | 
-| [/customer/{id}](https://localhost:5001/customer/{id})               | DELETE  | Delete customer         | 
+| [/customer](https://localhost:5001/api/customer)                         | GET     | Get all customers       | 
+| [/customer/{id}](https://localhost:5001/api/customer/{id})               | GET     | Get customer by id      | 
+| [/customer](https://localhost:5001/api/customer)                         | POST    | Add customer            | 
+| [/customer/{id}](https://localhost:5001/api/customer/{id})               | PUT     | Update customer         | 
+| [/customer/{id}](https://localhost:5001/api/customer/{id})               | PATCH   | Update customer status  | 
+| [/customer/{id}](https://localhost:5001/api/customer/{id})               | DELETE  | Delete customer         | 
 
 #### Account
 
 | Endpoint                                                             | Verb    | Description             |
 |----------------------------------------------------------------------|:-------:|-------------------------|
-| [/account](https://localhost:5001/account)                           | GET     | Get all accounts        | 
-| [/account/{id}](https://localhost:5001/account/{id})                 | GET     | Get account by id       | 
-| [/account](https://localhost:5001/account)                           | POST    | Add account             | 
-| [/account/{id}](https://localhost:5001/account/{id})                 | PUT     | Update account          | 
-| [/account/{id}](https://localhost:5001/account/{id})                 | PATCH   | Update account status   | 
-| [/account/{id}](https://localhost:5001/account/{id})                 | DELETE  | Delete account          | 
-| [/account/operation](https://localhost:5001/account/operation)   | POST    | Create operation      |
-| [/account/operation](https://localhost:5001/account/operation)   | GET     | List operations       |
+| [/account](https://localhost:5001/api/account)                           | GET     | Get all accounts        | 
+| [/account/{id}](https://localhost:5001/api/account/{id})                 | GET     | Get account by id       | 
+| [/account](https://localhost:5001/api/account)                           | POST    | Add account             | 
+| [/account/{id}](https://localhost:5001/api/account/{id})                 | PUT     | Update account          | 
+| [/account/{id}](https://localhost:5001/api/account/{id})                 | PATCH   | Update account status   | 
+| [/account/{id}](https://localhost:5001/api/account/{id})                 | DELETE  | Delete account          | 
+| [/account/operation](https://localhost:5001/api/account/operation)   | POST    | Create operation      |
+| [/account/operation](https://localhost:5001/api/account/operation)   | GET     | List operations       |
 

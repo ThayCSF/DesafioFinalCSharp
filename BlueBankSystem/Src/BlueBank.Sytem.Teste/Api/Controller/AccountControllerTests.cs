@@ -40,7 +40,6 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndGetById_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
             var request = new AddAccountRequest()
             {
                 CustomerId = CustomerId,
@@ -60,11 +59,10 @@ namespace BlueBank.Sytem.Teste.Api.Controller
             result.Should().Be200Ok();
             getResult.Id.Should().Be(accountResult.Id);
         }
-
+        
         [Fact]
         public void PostAndRemove_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
             var request = new AddAccountRequest()
             {
                 CustomerId = CustomerId,
@@ -85,7 +83,6 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndPut_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
             var postRequest = new AddAccountRequest()
             {
                 CustomerId = CustomerId,
